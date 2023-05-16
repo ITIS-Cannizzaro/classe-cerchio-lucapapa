@@ -1,43 +1,57 @@
-import java.util.Scanner;
+package altronome;
+public class quattro {
+	double r ;
 
-// Chiamare la classe col proprio cognome
-public class MainClass
-{
-	static Scanner in = new Scanner(System.in);
-	
-	public static void main(String[] args)
-	{
-		while(true)
-		{
-			stampaMenu();
-			int scelta = Integer.parseInt(in.nextLine());
-			switch(scelta)
-			{
-				//aggiungere, togliere casi a seconda delle proprie scelte
-				case 1:
-					//Inserire metodo statico
-				break;
-				case 2:
-					//Inserire metodo statico
-				break;
-				case 3:
-					//Inserire metodo statico
-				break;
-				default:
-					System.out.println("Scelta errata, riprova!");
-
-			}
-		}
+	public quattro(double r) {
+		this.r = r;
 	}
-	static void stampaMenu()
-	{
-		// Modificare il menù secondo le proprie scelte
-		System.out.println("1 - Es n. * - Titolo es. *");
-		System.out.println("2 - Es n. * - Titolo es. *");
-		System.out.println("3 - Es n. * - Titolo es. *");
-		System.out.println("4 - Es n. * - Titolo es. *");
-		System.out.println("5 - Es n. * - Titolo es. *");
+	public  double diametro() {
+		double diametro = r *2;
+		return diametro ;
+	}
+	public double perimetro () {
+		double peri = (r*2)*3.14;
+		return peri;
+	}
+	public double area () {
+		double quadr=r*r;
+		double area =quadr*3.14;
+		return area;
+	}
+	public quattro (quattro t) {
+		this.r = t.getRaggio()*2;
+	}
+	public double getRaggio() {
+		return r;
+	}
+	@Override
+	public String toString() {
+		return "quattro [r=" + r + "]";
 	}
 	
-	// Aggiungere qui i metodi statici relativi agli esercizi scelti
+	
 }
+
+
+package altronome;
+import java.util.Scanner;
+public class quattrodue {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("inserire il primo raggio");
+		int ru= scan.nextInt();
+		System.out.println("inserire il secondo raggio");
+		int rd= scan.nextInt();
+		quattro c1 = new quattro (ru);
+		quattro c2 = new quattro (rd);
+		System.out.println("dimetro primo cerchio :"+c1.diametro());
+		System.out.println("perimetro primo cerchio : "+c1.perimetro());
+		System.out.println("area primo cerchio : "+c1.area());
+		System.out.println("dimetro secondo cerchio :"+c2.diametro());
+		System.out.println("perimetro secondo cerchio : "+c2.perimetro());
+		System.out.println("area primo secondo : "+c2.area());
+	}
+
+}
+
+
